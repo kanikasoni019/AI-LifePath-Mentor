@@ -7,6 +7,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
+  <!-- Modal control script (at end of file, before </body>) -->
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+</script>
 <body class="bg-gray-50 text-gray-800">
   <header class="max-w-4xl mx-auto p-6 flex justify-between items-center">
     <h1 class="text-2xl font-semibold">AI LifePath Mentor</h1>
@@ -15,50 +24,96 @@
     </nav>
   </header>
   <main class="max-w-4xl mx-auto p-6">
-    <section class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-xl font-medium mb-2">Personalized AI guidance for your career & life</h2>
-      <p class="text-gray-600 mb-4">
-        The AI LifePath Mentor helps you plan small, effective steps toward your goals. This MVP demonstrates emotion-aware chat, professional layout, and an extendable architecture.
-      </p>
-     <!-- Existing personalized guidance section above features stays as is -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-  <!-- Objective Card 1 -->
-  <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
-    <span class="text-indigo-500 text-3xl mb-2">🤖</span>
-    <h3 class="font-semibold mb-2">Emotion & Skills Analyzer</h3>
-    <p class="text-sm text-gray-600 mb-2">AI analyzes your emotions, skills, and goals to guide your growth.</p>
-    <span class="inline-block px-3 py-1 text-xs bg-indigo-100 text-indigo-700 rounded">AI Powered</span>
+  <section class="bg-white rounded-lg shadow p-6">
+    <h2 class="text-xl font-medium mb-2">Personalized AI guidance for your career & life</h2>
+    <p class="text-gray-600 mb-4">
+      The AI LifePath Mentor helps you plan small, effective steps toward your goals. This MVP demonstrates emotion-aware chat, professional layout, and an extendable architecture.
+    </p>
+    <!-- Feature Card Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <!-- Emotion & Skills Analyzer -->
+      <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
+        <button onclick="openModal('emotionModal')" class="text-indigo-500 text-3xl mb-2 focus:outline-none">🤖</button>
+        <h3 class="font-semibold mb-2">Emotion & Skills Analyzer</h3>
+        <p class="text-sm text-gray-600 mb-2">AI analyzes your emotions, skills, and goals to guide your growth.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-indigo-100 text-indigo-700 rounded mb-2">AI Powered</span>
+        <button onclick="openModal('emotionModal')" class="text-indigo-600 mt-2 px-2 py-1 text-xs rounded hover:bg-indigo-100">View More</button>
+      </div>
+      <!-- Personalized Recommendations -->
+      <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
+        <button onclick="openModal('recommendationsModal')" class="text-yellow-500 text-3xl mb-2 focus:outline-none">💡</button>
+        <h3 class="font-semibold mb-2">Personalized Recommendations</h3>
+        <p class="text-sm text-gray-600 mb-2">Career and life suggestions with ML and NLP tailored for you.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-yellow-100 text-yellow-700 rounded mb-2">ML & NLP</span>
+        <button onclick="openModal('recommendationsModal')" class="text-yellow-600 mt-2 px-2 py-1 text-xs rounded hover:bg-yellow-100">View More</button>
+      </div>
+      <!-- Goal Tracking & Habits -->
+      <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
+        <button onclick="openModal('goalModal')" class="text-green-500 text-3xl mb-2 focus:outline-none">🏆</button>
+        <h3 class="font-semibold mb-2">Goal Tracking & Habits</h3>
+        <p class="text-sm text-gray-600 mb-2">Build habits and track progress effortlessly with integrated tools.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-green-100 text-green-700 rounded mb-2">Tracker</span>
+        <button onclick="openModal('goalModal')" class="text-green-600 mt-2 px-2 py-1 text-xs rounded hover:bg-green-100">View More</button>
+      </div>
+      <!-- Emotional Adaptivity -->
+      <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
+        <button onclick="openModal('emotionAdapModal')" class="text-pink-500 text-3xl mb-2 focus:outline-none">💖</button>
+        <h3 class="font-semibold mb-2">Emotional Adaptivity</h3>
+        <p class="text-sm text-gray-600 mb-2">Detect motivation and mental fatigue for adaptive support.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-pink-100 text-pink-700 rounded mb-2">Self-care</span>
+        <button onclick="openModal('emotionAdapModal')" class="text-pink-600 mt-2 px-2 py-1 text-xs rounded hover:bg-pink-100">View More</button>
+      </div>
+      <!-- Dashboard & Insights -->
+      <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
+        <button onclick="openModal('dashboardModal')" class="text-blue-500 text-3xl mb-2 focus:outline-none">📊</button>
+        <h3 class="font-semibold mb-2">Dashboard & Insights</h3>
+        <p class="text-sm text-gray-600 mb-2">Track your achievements, view streaks, and climb leaderboards for extra engagement.</p>
+        <span class="inline-block px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded mb-2">Dashboard</span>
+        <button onclick="openModal('dashboardModal')" class="text-blue-600 mt-2 px-2 py-1 text-xs rounded hover:bg-blue-100">View More</button>
+      </div>
+    </div>
+    <!-- End Card Grid -->
+  </section>
+
+  <!-- MODALS (add before </main> or just above </body>) -->
+  <div id="emotionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 max-w-lg">
+      <h2 class="text-xl font-semibold mb-4">Emotion & Skills Analyzer</h2>
+      <p>This tool uses AI to analyze your emotional state and skillset. You can upload your recent work or journal for feedback.</p>
+      <input type="file" class="mt-3 block" />
+      <button onclick="closeModal('emotionModal')" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded">Close</button>
+    </div>
   </div>
-  <!-- Objective Card 2 -->
-  <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
-    <span class="text-yellow-500 text-3xl mb-2">💡</span>
-    <h3 class="font-semibold mb-2">Personalized Recommendations</h3>
-    <p class="text-sm text-gray-600 mb-2">Career and life suggestions with machine learning and NLP tailored for you.</p>
-    <span class="inline-block px-3 py-1 text-xs bg-yellow-100 text-yellow-700 rounded">ML & NLP</span>
+  <div id="recommendationsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 max-w-lg">
+      <h2 class="text-xl font-semibold mb-4">Personalized Recommendations</h2>
+      <p>Receive actionable steps and tips based on your goals and skills. Share your interests to get started!</p>
+      <button onclick="closeModal('recommendationsModal')" class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded">Close</button>
+    </div>
   </div>
-  <!-- Objective Card 3 -->
-  <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
-    <span class="text-green-500 text-3xl mb-2">🏆</span>
-    <h3 class="font-semibold mb-2">Goal Tracking & Habits</h3>
-    <p class="text-sm text-gray-600 mb-2">Build habits and track progress effortlessly with integrated tools.</p>
-    <span class="inline-block px-3 py-1 text-xs bg-green-100 text-green-700 rounded">Tracker</span>
+  <div id="goalModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 max-w-lg">
+      <h2 class="text-xl font-semibold mb-4">Goal Tracking & Habits</h2>
+      <p>Set a goal, upload progress snapshots, and monitor streaks. Input below to track your habit:</p>
+      <input type="text" class="mt-3 block border p-2 rounded w-full" placeholder="Your new goal..."/>
+      <button onclick="closeModal('goalModal')" class="mt-4 bg-green-500 text-white px-4 py-2 rounded">Close</button>
+    </div>
   </div>
-  <!-- Objective Card 4 -->
-  <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
-    <span class="text-pink-500 text-3xl mb-2">💖</span>
-    <h3 class="font-semibold mb-2">Emotional Adaptivity</h3>
-    <p class="text-sm text-gray-600 mb-2">Detect motivation and mental fatigue for adaptive support.</p>
-    <span class="inline-block px-3 py-1 text-xs bg-pink-100 text-pink-700 rounded">Self-care</span>
+  <div id="emotionAdapModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 max-w-lg">
+      <h2 class="text-xl font-semibold mb-4">Emotional Adaptivity</h2>
+      <p>Check your motivation levels, share your mood, and get encouragement.</p>
+      <button onclick="closeModal('emotionAdapModal')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded">Close</button>
+    </div>
   </div>
-  <!-- Objective Card 5 -->
-  <div class="p-6 bg-white rounded-lg shadow border flex flex-col items-start hover:shadow-lg transition">
-    <span class="text-blue-500 text-3xl mb-2">📊</span>
-    <h3 class="font-semibold mb-2">Dashboard & Insights</h3>
-    <p class="text-sm text-gray-600 mb-2">Track your achievements, view streaks, and climb leaderboards for extra engagement.</p>
-    <span class="inline-block px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded">Dashboard</span>
+  <div id="dashboardModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 max-w-lg">
+      <h2 class="text-xl font-semibold mb-4">Dashboard & Insights</h2>
+      <p>See your performance graph, upload achievements, and share your leaderboard rank.</p>
+      <input type="file" class="mt-3 block" />
+      <button onclick="closeModal('dashboardModal')" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+    </div>
   </div>
-</div>
-    </section>
-  </main>
+ </main>
 </body>
 </html>
