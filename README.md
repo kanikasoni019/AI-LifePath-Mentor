@@ -1,6 +1,6 @@
 # AI LifePath Mentor
 
-🔗 Live Demo: 
+🔗 Live Demo:ai-lifepath-mentor-8j8b.onrender.com/ 
 AI LifePath Mentor is an AI-powered career and life guidance platform that provides personalized roadmaps, skill recommendations, and interactive mentoring to help users make smarter education and career decisions.
 
 ## 🚀 Features
